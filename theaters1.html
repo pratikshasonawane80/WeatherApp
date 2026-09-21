@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieBook - Theatres</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+ 
+<body>
+
+
+    <!-- Navbar -->
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                🎬 MovieBook
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="movies.html">Movies</a>
+                </li>
+
+                <li>
+                    <a href="theatres1.html" class="active">
+                        Theatres
+                    </a>
+                </li>
+
+                <li>
+                    <a href="bookings.html">
+                        My Bookings
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.html">
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="register.html">
+
+                    </a>
+                </li >
+
+            </ul>
+
+            <!-- Login / Register -->
+                <div class="nav-buttons">
+
+                    <a href="login.html" class="login-btn">
+                        Login
+                    </a>
+
+                    <a href="register.html" class="register-btn">
+                        Register
+                    </a>
+
+                </div>
+        </nav>
+
+    </header>
+
+
+    <!-- Header -->
+    <section class="page-header">
+
+        <h1>Our Theatres</h1>
+
+        <p>
+            Find a theatre near you and enjoy your favourite movie.
+        </p>
+
+    </section>
+
+
+    <!-- Theatre Search -->
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <input type="text" id="theatreSearch" placeholder="Search theatre or location..."
+                onkeyup="filterTheatres()">
+
+            <button onclick="filterTheatres()">
+                Search
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Theatres -->
+    <section class="theatre-section">
+
+        <div class="theatre-container" id="theatreContainer">
+
+
+            <!-- Theatre 1 -->
+            <div class="theatre-card">
+
+                <div class="theatre-icon">
+                    🏢
+                </div>
+
+                <div class="theatre-info">
+
+                    <h2>PVR Cinemas</h2>
+
+                    <p>
+                        📍 City Centre
+                    </p>
+
+                    <p>
+                        🎞️ 5 Screens
+                    </p>
+
+                    <p>
+                        ⭐ 4.5/5
+                    </p>
+
+                    <button onclick="selectTheatre('PVR Cinemas')">
+
+                        Select Theatre
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Theatre 2 -->
+            <div class="theatre-card">
+
+                <div class="theatre-icon">
+                    🎦
+                </div>
+
+                <div class="theatre-info">
+
+                    <h2>INOX</h2>
+
+                    <p>
+                        📍 Central Mall
+                    </p>
+
+                    <p>
+                        🎞️ 6 Screens
+                    </p>
+
+                    <p>
+                        ⭐ 4.4/5
+                    </p>
+
+                    <button onclick="selectTheatre('INOX')">
+
+                        Select Theatre
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Theatre 3 -->
+            <div class="theatre-card">
+
+                <div class="theatre-icon">
+                    🍿
+                </div>
+
+                <div class="theatre-info">
+
+                    <h2>Cinepolis</h2>
+
+                    <p>
+                        📍 Main Road
+                    </p>
+
+                    <p>
+                        🎞️ 4 Screens
+                    </p>
+
+                    <p>
+                        ⭐ 4.3/5
+                    </p>
+
+                    <button onclick="selectTheatre('Cinepolis')">
+
+                        Select Theatre
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 MovieBook. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

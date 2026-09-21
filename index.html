@@ -3,259 +3,215 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>WeatherNow | Home</title>
+    <title>Movie Reservation System</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="app-container">
 
-    <!-- NAVBAR -->
-    <header class="header">
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
 
-        <a href="index.html" class="brand">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                🎬 <span>Movie</span>Book
+            </a>
 
-            <div class="brand-icon">🌤️</div>
+            <!-- Navigation Links -->
+            <ul class="nav-links">
 
-            <div>
-                <h1>Weather<span>Now</span></h1>
-                <p>Your daily weather companion</p>
-            </div>
+                <li>
+                    <a href="index.html">🏠 Home</a>
+                </li>
+                <li>
 
-        </a>
+                    <a href="movies.html">🎬Movies</a>
 
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="forecast.html">Forecast</a>
-            <a href="details.html">Details</a>
-            <a href="sun.html">Sun & Moon</a>
-            <a href="settings.html">Settings</a>
-            <a href="about.html">About</a>
+
+
+                </li>
+
+                <li>
+                    <a href="theaters1.html">🎭 Theatres</a>
+                </li>
+
+                <li>
+                    <a href="bookings.html">🎟️ My Bookings</a>
+                </li>
+
+                <li>
+                    <a href="login.html">
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="register.html">
+
+                    </a>
+                </li >
+            </ul>
+
+                <!-- Login / Register -->
+                <div class="nav-buttons">
+
+                    <a href="login.html" class="login-btn">
+                        Login
+                    </a>
+
+                    <a href="register.html" class="register-btn">
+                        Register
+                    </a>
+
+                </div>
 
         </nav>
-
-        <button id="themeBtn" class="theme-btn">
-            🌙
-        </button>
-
     </header>
 
 
-    <!-- SEARCH -->
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Book Your Movie Tickets Easily</h1>
+
+            <p>
+                Discover the latest movies, choose your favourite
+                theatre and reserve your seats in just a few clicks.
+            </p>
+
+            <a href="movies.html" class="main-btn">
+                Browse Movies
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Search Section -->
     <section class="search-section">
+
+        <h2>Find Your Movie</h2>
 
         <div class="search-box">
 
-            <span>🔍</span>
+            <input type="text" id="movieSearch" placeholder="Search movie...">
 
-            <input
-                type="text"
-                id="cityInput"
-                placeholder="Search city..."
-                autocomplete="off"
-            >
-
-            <button
-                type="button"
-                id="searchBtn">
+            <button onclick="searchMovie()">
                 Search
             </button>
 
         </div>
 
-        <button
-            type="button"
-            id="locationBtn"
-            class="location-btn">
-            📍 Use My Location
-        </button>
-
     </section>
 
 
-    <!-- HERO -->
-    <section class="weather-hero">
+    <!-- Featured Movies -->
+    <section class="movies-section">
 
-        <div class="hero-left">
+        <h2>Featured Movies</h2>
 
-            <div class="location-info">
+        <div class="movie-container">
 
-                <div>
+            <!-- Movie 1 -->
+            <div class="movie-card">
 
-                    <span>CURRENT LOCATION</span>
-
-                    <h2 id="cityName">
-                        Pune
-                    </h2>
-
-                    <p id="country">
-                        India
-                    </p>
-
+                <div class="movie-poster">
+                    🎬
                 </div>
 
-                <div class="date-info">
+                <div class="movie-info">
 
-                    <strong id="dayName">
-                        Today
-                    </strong>
+                    <h3>Avengers</h3>
 
-                    <small id="date">
-                        Loading...
-                    </small>
+                    <p>Action | Adventure</p>
+
+                    <p>⭐ 8.5/10</p>
+
+                    <button onclick="bookMovie('Avengers')">
+                        Book Now
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <div class="main-weather">
+            <!-- Movie 2 -->
+            <div class="movie-card">
 
-                <div
-                    class="weather-icon"
-                    id="weatherIcon">
-                    ☀️
+                <div class="movie-poster">
+                    🎥
                 </div>
 
-                <div class="temperature">
+                <div class="movie-info">
 
-                    <h1 id="temperature">
-                        --°
-                    </h1>
+                    <h3>Inception</h3>
 
-                    <h3 id="description">
-                        Loading...
-                    </h3>
+                    <p>Sci-Fi | Thriller</p>
 
-                    <p>
-                        Feels like
-                        <span id="feels">--°</span>
-                    </p>
+                    <p>⭐ 8.8/10</p>
+
+                    <button onclick="bookMovie('Inception')">
+                        Book Now
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <div class="min-max">
+            <!-- Movie 3 -->
+            <div class="movie-card">
 
-                <div>
-                    <span>🌡️ High</span>
-                    <strong id="highTemp">--°</strong>
+                <div class="movie-poster">
+                    🍿
                 </div>
 
-                <div>
-                    <span>❄️ Low</span>
-                    <strong id="lowTemp">--°</strong>
+                <div class="movie-info">
+
+                    <h3>Interstellar</h3>
+
+                    <p>Sci-Fi | Drama</p>
+
+                    <p>⭐ 8.7/10</p>
+
+                    <button onclick="bookMovie('Interstellar')">
+                        Book Now
+                    </button>
+
                 </div>
 
             </div>
 
-        </div>
 
+            <!-- Movie 4 -->
+            <div class="movie-card">
 
-        <!-- SUMMARY -->
-        <div class="hero-right">
-
-            <div class="summary-title">
-
-                <span>TODAY'S WEATHER</span>
-
-                <h3>
-                    Weather Summary
-                </h3>
-
-            </div>
-
-
-            <div class="summary-grid">
-
-                <div class="summary-card">
-
-                    <div class="summary-icon">
-                        💨
-                    </div>
-
-                    <div>
-                        <span>Wind</span>
-
-                        <strong id="wind">
-                            -- km/h
-                        </strong>
-
-                        <small>
-                            Current wind
-                        </small>
-                    </div>
-
+                <div class="movie-poster">
+                    🎞️
                 </div>
 
+                <div class="movie-info">
 
-                <div class="summary-card">
+                    <h3>Joker</h3>
 
-                    <div class="summary-icon">
-                        💧
-                    </div>
+                    <p>Drama | Crime</p>
 
-                    <div>
-                        <span>Humidity</span>
+                    <p>⭐ 8.4/10</p>
 
-                        <strong id="humidity">
-                            --%
-                        </strong>
-
-                        <small>
-                            Current humidity
-                        </small>
-                    </div>
-
-                </div>
-
-
-                <div class="summary-card">
-
-                    <div class="summary-icon">
-                        ☁️
-                    </div>
-
-                    <div>
-                        <span>Cloud Cover</span>
-
-                        <strong id="clouds">
-                            --%
-                        </strong>
-
-                        <small>
-                            Cloud coverage
-                        </small>
-                    </div>
-
-                </div>
-
-
-                <div class="summary-card">
-
-                    <div class="summary-icon">
-                        👁️
-                    </div>
-
-                    <div>
-                        <span>Visibility</span>
-
-                        <strong id="visibility">
-                            -- km
-                        </strong>
-
-                        <small>
-                            Visibility
-                        </small>
-                    </div>
+                    <button onclick="bookMovie('Joker')">
+                        Book Now
+                    </button>
 
                 </div>
 
@@ -266,109 +222,29 @@
     </section>
 
 
-    <!-- DETAILS -->
-    <section class="professional-card">
+    <!-- Why Choose Us -->
+    <section class="features">
 
-        <div class="section-heading">
+        <h2>Why Choose MovieBook?</h2>
 
-            <div>
-                <span>WEATHER DETAILS</span>
+        <div class="feature-container">
 
-                <h2>
-                    Today's Highlights
-                </h2>
+            <div class="feature">
+                <span>🎟️</span>
+                <h3>Easy Booking</h3>
+                <p>Book your favourite movie tickets easily.</p>
             </div>
 
-            <a href="details.html">
-                View Details →
-            </a>
-
-        </div>
-
-
-        <div class="summary-grid">
-
-            <div class="summary-card">
-
-                <div class="summary-icon">
-                    💨
-                </div>
-
-                <div>
-                    <span>Wind Speed</span>
-
-                    <strong id="detailWind">
-                        -- km/h
-                    </strong>
-
-                    <small>
-                        Current wind
-                    </small>
-                </div>
-
+            <div class="feature">
+                <span>💺</span>
+                <h3>Choose Your Seat</h3>
+                <p>Select your preferred seats before booking.</p>
             </div>
 
-
-            <div class="summary-card">
-
-                <div class="summary-icon">
-                    ⬆️
-                </div>
-
-                <div>
-                    <span>Pressure</span>
-
-                    <strong id="pressure">
-                        -- hPa
-                    </strong>
-
-                    <small>
-                        Atmospheric pressure
-                    </small>
-                </div>
-
-            </div>
-
-
-            <div class="summary-card">
-
-                <div class="summary-icon">
-                    🌡️
-                </div>
-
-                <div>
-                    <span>Feels Like</span>
-
-                    <strong id="detailFeels">
-                        --°
-                    </strong>
-
-                    <small>
-                        Feels like temperature
-                    </small>
-                </div>
-
-            </div>
-
-
-            <div class="summary-card">
-
-                <div class="summary-icon">
-                    💧
-                </div>
-
-                <div>
-                    <span>Humidity</span>
-
-                    <strong id="detailHumidity">
-                        --%
-                    </strong>
-
-                    <small>
-                        Moisture level
-                    </small>
-                </div>
-
+            <div class="feature">
+                <span>🔒</span>
+                <h3>Secure</h3>
+                <p>Your account and booking information is secure.</p>
             </div>
 
         </div>
@@ -376,89 +252,18 @@
     </section>
 
 
-    <!-- HOURLY DEMO SECTION -->
-    <section class="professional-card">
-
-        <div class="section-heading">
-
-            <div>
-                <span>HOURLY WEATHER</span>
-
-                <h2>
-                    Today's Forecast
-                </h2>
-            </div>
-
-            <a href="forecast.html">
-                View Forecast →
-            </a>
-
-        </div>
-
-
-        <div class="professional-hourly">
-
-            <div class="professional-hour active">
-                <span>Now</span>
-                <div>🌤️</div>
-                <strong id="hourNow">--°</strong>
-                <small>Current</small>
-            </div>
-
-            <div class="professional-hour">
-                <span>Next</span>
-                <div>🌤️</div>
-                <strong>--°</strong>
-                <small>Forecast</small>
-            </div>
-
-            <div class="professional-hour">
-                <span>Later</span>
-                <div>☁️</div>
-                <strong>--°</strong>
-                <small>Forecast</small>
-            </div>
-
-            <div class="professional-hour">
-                <span>Later</span>
-                <div>🌤️</div>
-                <strong>--°</strong>
-                <small>Forecast</small>
-            </div>
-
-            <div class="professional-hour">
-                <span>Later</span>
-                <div>☁️</div>
-                <strong>--°</strong>
-                <small>Forecast</small>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
 
-        <div class="footer-brand">
-            🌤️ Weather<span>Now</span>
-        </div>
-
         <p>
-            Beautiful weather information, wherever you are.
+            © 2026 MovieBook. All Rights Reserved.
         </p>
-
-        <small>
-            © 2026 WeatherNow • Powered by OpenWeather
-        </small>
 
     </footer>
 
-</div>
 
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>

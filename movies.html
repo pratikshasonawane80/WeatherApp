@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieBook - Movies</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>MovieBook - Movies</title>
+
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+     
+
+   <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                🎬 <span>Movie</span>Book
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">🏠 Home</a>
+                </li>
+                <li>
+
+                    <a href="movies.html">🎬Movies</a>
+
+
+
+                </li>
+
+                <li>
+                    <a href="theaters1.html">🎭 Theatres</a>
+                </li>
+
+                <li>
+                    <a href="bookings.html">🎟️ My Bookings</a>
+                </li>
+
+                <li>
+                    <a href="login.html">
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="register.html">
+
+                    </a>
+                </li >
+            </ul>
+
+                <!-- Login / Register -->
+                <div class="nav-buttons">
+
+                    <a href="login.html" class="login-btn">
+                        Login
+                    </a>
+
+                    <a href="register.html" class="register-btn">
+                        Register
+                    </a>
+
+                </div>
+
+        </nav>
+    </header>
+
+
+
+    <section class="page-header">
+
+        <h1>🎬 Movies</h1>
+
+        <p>
+            Explore Hollywood and Bollywood movies
+            and book your favourite show.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+     MOVIE SEARCH
+========================== -->
+
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <input type="text" id="movieSearch" placeholder="Search movie..." onkeyup="filterMovies()">
+
+            <button onclick="filterMovies()">
+                🔍 Search
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+     MOVIE SECTION
+========================== -->
+
+    <section class="movies-section">
+
+        <h2 class="movie-category-title">
+            🎞️ Hollywood Movies
+        </h2>
+
+        <div class="movie-container" id="movieContainer">
+
+
+            <!-- Hollywood 1 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://cdn.marvel.com/content/2x/MLou2_Payoff_1-Sht_Online_DOM_v7_Sm.jpg"
+                        alt="Avengers:Endgame">
+                    🦸
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Avengers: Endgame</h3>
+
+                    <p>
+                        Action | Adventure | Sci-Fi
+                    </p>
+
+                    <p>
+                        ⭐ 8.4/10
+                    </p>
+
+                    <button onclick="bookMovie('Avengers: Endgame')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hollywood 2 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://m.media-amazon.com/images/I/514zBLkyJcL.jpg" alt="Interstellar">
+                    🚀
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Interstellar</h3>
+
+                    <p>
+                        Sci-Fi | Drama | Adventure
+                    </p>
+
+                    <p>
+                        ⭐ 8.7/10
+                    </p>
+
+                    <button onclick="bookMovie('Interstellar')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hollywood 3 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_1Xx182hruQoQEexyas9LDm8LMPPyc7YDhTBN68expoSptbnFWDDU8llv&s=10"
+                        alt="inception">
+                    🧠
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Inception</h3>
+
+                    <p>
+                        Sci-Fi | Thriller | Action
+                    </p>
+
+                    <p>
+                        ⭐ 8.8/10
+                    </p>
+
+                    <button onclick="bookMovie('Inception')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hollywood 4 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQITVwllAIt5OO4bLSMS2z8HU-mOKFSoeHkGMVa95QToA&s=10"
+                        alt="joker">
+
+                    "
+
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Joker</h3>
+
+                    <p>
+                        Crime | Drama | Thriller
+                    </p>
+
+                    <p>
+                        ⭐ 8.4/10
+                    </p>
+
+                    <button onclick="bookMovie('Joker')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hollywood 5 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjA4-LvS1VsaXgigb1yozg1kJVlG7Yrdw9-8GZy-akiw&s=10"
+                        alt="The Batman">
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>The Batman</h3>
+
+                    <p>
+                        Action | Crime | Drama
+                    </p>
+
+                    <p>
+                        ⭐ 7.8/10
+                    </p>
+
+                    <button onclick="bookMovie('The Batman')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hollywood 6 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ2FRWGQCLkVLRj-VcHlKhz4IVdMpoHOvqCvpJi08Tzw&s=10"
+                        alt="jurassic world">
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Jurassic World</h3>
+
+                    <p>
+                        Action | Adventure | Sci-Fi
+                    </p>
+
+                    <p>
+                        ⭐ 6.9/10
+                    </p>
+
+                    <button onclick="bookMovie('Jurassic World')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hollywood 6 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_kQAn8fJ81QAfo7dd_cJk9KUKwX1diS0kQu2X32KdYA&s=10"
+                        alt="The Dark Knight">
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>The Dark Knight</h3>
+
+                    <p>
+                        Action | Adventure | Sci-Fi
+                    </p>
+
+                    <p>
+                        ⭐ 6.9/10
+                    </p>
+
+                    <button onclick="bookMovie('The Dark Knight')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- Hollywood 6 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ExvedSiDpWfjzH51-03K2jdbF6zUydIq7rpHg1QL6Q&s=10"
+                        alt="Anaconda 3">
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Anaconda 3</h3>
+
+                    <p>
+                        Action | Adventure | Snake
+                    </p>
+
+                    <p>
+                        ⭐ 6.9/10
+                    </p>
+
+                    <button onclick="bookMovie('Snake')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+         BOLLYWOOD
+    ========================== -->
+
+        <h2 class="movie-category-title bollywood-title">
+            🇮🇳 Bollywood Movies
+        </h2>
+
+        <div class="movie-container" id="bollywoodContainer">
+
+
+            <!-- Bollywood 1 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyvvAolvPvTsBdWE6HlaYjFI7VZPal0iRS0GnFpGorAA&s=10"
+                        alt="pathan">
+                    🪖
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Pathaan</h3>
+
+                    <p>
+                        Action | Thriller
+                    </p>
+
+                    <p>
+                        ⭐ 5.9/10
+                    </p>
+
+                    <button onclick="bookMovie('Pathaan')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bollywood 2 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR39LMtIBriO4-2w4J0AvJQbignovdzTwQsYfdvE0TYrA&s=10"
+                        alt="war">
+                    🏎️
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>War</h3>
+
+                    <p>
+                        Action | Thriller
+                    </p>
+
+                    <p>
+                        ⭐ 6.5/10
+                    </p>
+
+                    <button onclick="bookMovie('War')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bollywood 3 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://i.pinimg.com/736x/34/5f/ec/345fecf5e269212d9a287508648ec173.jpg"
+                        alt="yeh Jawaani hai Deewani">
+                    ❤️
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Yeh Jawaani Hai Deewani</h3>
+
+                    <p>
+                        Romance | Drama
+                    </p>
+
+                    <p>
+                        ⭐ 7.2/10
+                    </p>
+
+                    <button onclick="bookMovie('Yeh Jawaani Hai Deewani')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bollywood 4 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMzY2MzgxNDI5MV5BMl5BanBnXkFtZTcwMzk2MzkwMw@@._V1_.jpg"
+                        alt="3 Idiots">
+                    🎓
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>3 Idiots</h3>
+
+                    <p>
+                        Comedy | Drama
+                    </p>
+
+                    <p>
+                        ⭐ 8.4/10
+                    </p>
+
+                    <button onclick="bookMovie('3 Idiots')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bollywood 5 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHu24u-PkBjbDi0lTU56HFxCq1hWT6Nk0PGn9L05mZF3yFB7L9GPnSQEc&s=10"
+                    alt="83">
+                </div>
+
+                <div class="movie-info">
+                   
+                    <h3>83</h3>
+
+                    <p>
+                        Sports | Drama | Biography
+                    </p>
+
+                    <p>
+                        ⭐ 7.5/10
+                    </p>
+
+                    <button onclick="bookMovie('83')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bollywood 6 -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    👑
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMpdDWl1t52I3gwry44fiNSr8sdlBUoHdWKm3tzN9jNANiHMpn5Anl9t-s&s=10"
+                        alt="RRR">
+                </div>
+
+                <div class="movie-info">
+                    
+
+                    <h3>RRR</h3>
+
+                    <p>
+                        Action | Drama | Adventure
+                    </p>
+
+                    <p>
+                        ⭐ 7.8/10
+                    </p>
+
+                    <button onclick="bookMovie('RRR')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Bollywood  -->
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                                  <img src= " https://i.pinimg.com/736x/a7/50/15/a7501505790d652c27008ded5079288c.jpg" alt="saiyar">
+                    👑
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Saiyara</h3>
+
+                    <p>
+                        love| Drama | Romance
+                    </p>
+
+                    <p>
+                        ⭐ 9.5/10
+                    </p>
+
+                    <button onclick="bookMovie('Saiyara')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="movie-card">
+
+                <div class="movie-poster">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBq9c13A22HaMf0alYGuFR_8OuTnmdAoB5RBUZlG4lZiult1bfwWdCWSTH&s=10" alt="Cocktail">
+                    ❤️
+                </div>
+
+                <div class="movie-info">
+
+                    <h3>Cocktail</h3>
+
+                    <p>
+                        love| Drama | Romance
+                    </p>
+
+                    <p>
+                        ⭐ 7.8/10
+                    </p>
+
+                    <button onclick="bookMovie('Cocktail')">
+                        🎟️ Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+     FOOTER
+========================== -->
+
+    <footer>
+
+       <footer>
+
+    <p>
+        © 2026 MovieBook. All Rights Reserved.
+    </p>
+
+    <p class="contact-info">
+        📞 Contact Us:
+        <a href="tel:+919876543210">
+            +91 98765 43210
+        </a>
+    </p>
+
+    <p class="contact-info">
+        📧 Email:
+        <a href="mailto:support@moviebook.com">
+            support@moviebook.com
+        </a>
+    </p>
+
+</footer>
+
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

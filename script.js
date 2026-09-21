@@ -1,656 +1,869 @@
-// ==========================================
-// OPENWEATHER API KEY
-// ==========================================
+function searchMovie() {
 
-const API_KEY = "0fabe8b9830049784a108f118e4c52a0";
+    const movie = document
+        .getElementById("movieSearch")
+        .value;
 
+    if (movie.trim() === "") {
 
-// ==========================================
-// HTML ELEMENTS
-// ==========================================
+        alert("Please enter a movie name.");
 
-const cityInput = document.getElementById("cityInput");
-const searchBtn = document.getElementById("searchBtn");
-const locationBtn = document.getElementById("locationBtn");
+    } else {
 
-const cityName = document.getElementById("cityName");
-const country = document.getElementById("country");
-
-const temperature = document.getElementById("temperature");
-const description = document.getElementById("description");
-
-const humidity = document.getElementById("humidity");
-const wind = document.getElementById("wind");
-const feels = document.getElementById("feels");
-const clouds = document.getElementById("clouds");
-const pressure = document.getElementById("pressure");
-const visibility = document.getElementById("visibility");
-
-const detailWind = document.getElementById("detailWind");
-const detailFeels = document.getElementById("detailFeels");
-const detailHumidity = document.getElementById("detailHumidity");
-
-const highTemp = document.getElementById("highTemp");
-const lowTemp = document.getElementById("lowTemp");
-
-const weatherIcon = document.getElementById("weatherIcon");
-
-const date = document.getElementById("date");
-const dayName = document.getElementById("dayName");
-
-const hourNow = document.getElementById("hourNow");
+        alert("Searching for: " + movie);
+    }
+}
 
 
-// ==========================================
-// SEARCH BUTTON
-// ==========================================
+function bookMovie(movieName) {
 
-searchBtn.addEventListener("click", function () {
+    alert(
+        "You selected " +
+        movieName +
+        ". Seat selection will be available soon!"
+    );
 
-    const searchCity = cityInput.value.trim();
+}/* =================================
+   THEATRE SEARCH
+================================= */
 
-    if (searchCity === "") {
+function filterTheatres() {
 
-        alert("Please enter city name.");
+    const searchInput =
+        document.getElementById("theatreSearch");
+
+    const searchValue =
+        searchInput.value.toLowerCase().trim();
+
+    const theatreCards =
+        document.querySelectorAll(".theatre-card");
+
+    let visibleCount = 0;
+
+    theatreCards.forEach(function(card) {
+
+        const theatreName =
+            card.querySelector("h2").textContent.toLowerCase();
+
+        const theatreDetails =
+            card.querySelector(".theatre-info").textContent.toLowerCase();
+
+        if (
+            theatreName.includes(searchValue) ||
+            theatreDetails.includes(searchValue)
+        ) {
+
+            card.style.display = "flex";
+            visibleCount++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    // No result message
+    let noResults =
+        document.querySelector(".no-results");
+
+    if (visibleCount === 0) {
+
+        if (!noResults) {
+
+            noResults =
+                document.createElement("div");
+
+            noResults.className = "no-results";
+
+            noResults.textContent =
+                "Sorry, no theatre found.";
+
+            document
+                .getElementById("theatreContainer")
+                .appendChild(noResults);
+        }
+
+    } else {
+
+        if (noResults) {
+            noResults.remove();
+        }
+
+    }
+}
+
+
+/* =================================
+   SELECT THEATRE
+================================= */
+
+function selectTheatre(theatreName) {
+
+    alert(
+        "You selected " +
+        theatreName +
+        "."
+    );
+
+}
+
+// ================= SEARCH MOVIE =================
+
+function searchMovie() {
+
+    const input =
+        document.getElementById("movieSearch");
+
+    if (!input) {
+        return;
+    }
+
+    const movieName =
+        input.value.trim();
+
+    if (movieName === "") {
+
+        alert("Please enter a movie name.");
 
         return;
     }
 
-    getWeather(searchCity);
-
-});
-
-
-// ==========================================
-// ENTER KEY
-// ==========================================
-
-cityInput.addEventListener("keydown", function (event) {
-
-    if (event.key === "Enter") {
-
-        searchBtn.click();
-
-    }
-
-});
-
-
-// ==========================================
-// GET WEATHER BY CITY
-// ==========================================
-
-async function getWeather(searchCity) {
-
-    try {
-
-        showLoading();
-
-
-        const url =
-            `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(searchCity)}&appid=${API_KEY}&units=metric`;
-
-
-        console.log("Weather URL:", url);
-
-
-        const response = await fetch(url);
-
-
-        const data = await response.json();
-
-
-        console.log("OpenWeather response:", data);
-
-
-        // ==================================
-        // API ERROR
-        // ==================================
-
-        if (!response.ok) {
-
-            if (response.status === 401) {
-
-                throw new Error(
-                    "INVALID_API_KEY"
-                );
-
-            }
-
-
-            if (response.status === 404) {
-
-                throw new Error(
-                    "CITY_NOT_FOUND"
-                );
-
-            }
-
-
-            throw new Error(
-                data.message || "WEATHER_ERROR"
-            );
-
-        }
-
-
-        // ==================================
-        // UPDATE WEATHER
-        // ==================================
-
-        updateWeather(data);
-
-    }
-
-
-    catch (error) {
-
-        console.error(
-            "Weather Error:",
-            error
-        );
-
-
-        if (
-            error.message ===
-            "INVALID_API_KEY"
-        ) {
-
-            alert(
-                "❌ API Key invalid आहे किंवा activate झालेली नाही."
-            );
-
-        }
-
-
-        else if (
-            error.message ===
-            "CITY_NOT_FOUND"
-        ) {
-
-            alert(
-                "❌ City सापडले नाही. City name तपासा."
-            );
-
-        }
-
-
-        else {
-
-            alert(
-                "❌ Weather data मिळवताना error आला.\n\n" +
-                error.message
-            );
-
-        }
-
-    }
-
+    alert(
+        "Searching for movie: " +
+        movieName
+    );
 }
 
 
-// ==========================================
-// UPDATE WEATHER UI
-// ==========================================
+// ================= FILTER MOVIES =================
 
-function updateWeather(data) {
+function filterMovies() {
 
+    const input =
+        document.getElementById("movieSearch");
 
-    // ==================================
-    // CITY
-    // ==================================
+    const container =
+        document.getElementById("movieContainer");
 
-    cityName.innerText =
-        data.name;
-
-
-    // ==================================
-    // COUNTRY
-    // ==================================
-
-    country.innerText =
-        getCountryName(data.sys.country);
-
-
-    // ==================================
-    // TEMPERATURE
-    // ==================================
-
-    temperature.innerText =
-        Math.round(data.main.temp) + "°";
-
-
-    // ==================================
-    // DESCRIPTION
-    // ==================================
-
-    description.innerText =
-        capitalize(
-            data.weather[0].description
-        );
-
-
-    // ==================================
-    // FEELS LIKE
-    // ==================================
-
-    const feelsValue =
-        Math.round(data.main.feels_like);
-
-    feels.innerText =
-        feelsValue + "°";
-
-    detailFeels.innerText =
-        feelsValue + "°";
-
-
-    // ==================================
-    // HUMIDITY
-    // ==================================
-
-    humidity.innerText =
-        data.main.humidity + "%";
-
-    detailHumidity.innerText =
-        data.main.humidity + "%";
-
-
-    // ==================================
-    // WIND
-    // ==================================
-
-    const windKmh =
-        data.wind.speed * 3.6;
-
-    const windText =
-        windKmh.toFixed(1) + " km/h";
-
-    wind.innerText =
-        windText;
-
-    detailWind.innerText =
-        windText;
-
-
-    // ==================================
-    // CLOUDS
-    // ==================================
-
-    clouds.innerText =
-        data.clouds.all + "%";
-
-
-    // ==================================
-    // PRESSURE
-    // ==================================
-
-    pressure.innerText =
-        data.main.pressure + " hPa";
-
-
-    // ==================================
-    // VISIBILITY
-    // ==================================
-
-    if (data.visibility !== undefined) {
-
-        const visibilityKm =
-            data.visibility / 1000;
-
-        visibility.innerText =
-            visibilityKm.toFixed(1) + " km";
-
+    if (!input || !container) {
+        return;
     }
 
+    const searchValue =
+        input.value.toLowerCase();
 
-    // ==================================
-    // HIGH / LOW
-    // ==================================
+    const movies =
+        container.getElementsByClassName("movie-card");
 
-    highTemp.innerText =
-        Math.round(data.main.temp_max) + "°";
+    for (let i = 0; i < movies.length; i++) {
 
-    lowTemp.innerText =
-        Math.round(data.main.temp_min) + "°";
+        const movieTitle =
+            movies[i]
+            .querySelector("h3")
+            .innerText
+            .toLowerCase();
 
+        if (movieTitle.includes(searchValue)) {
 
-    // ==================================
-    // WEATHER ICON
-    // ==================================
+            movies[i].style.display = "";
 
-    const iconCode =
-        data.weather[0].icon;
+        } else {
 
+            movies[i].style.display = "none";
 
-    weatherIcon.innerHTML =
-        `<img
-            src="https://openweathermap.org/img/wn/${iconCode}@2x.png"
-            alt="${data.weather[0].description}"
-        >`;
-
-
-    // ==================================
-    // CURRENT HOURLY CARD
-    // ==================================
-
-    hourNow.innerText =
-        Math.round(data.main.temp) + "°";
+        }
+    }
+}
 
 
-    // ==================================
-    // DATE
-    // ==================================
+// ================= BOOK MOVIE =================
 
-    updateDate();
+function bookMovie(movieName) {
 
-
-    // ==================================
-    // CHANGE BACKGROUND
-    // ==================================
-
-    updateWeatherBackground(
-        data.weather[0].id
+    alert(
+        "You selected " +
+        movieName +
+        ".\n\nNext step: Select Theatre and Seats."
     );
 
 }
 
 
-// ==========================================
-// UPDATE DATE
-// ==========================================
 
-function updateDate() {
+/* =========================
+   THEATRE SEARCH / FILTER
+========================= */
 
-    const now =
-        new Date();
+function filterTheatres() {
+
+    const searchInput =
+        document.getElementById("theatreSearch");
+
+    const searchText =
+        searchInput.value.toLowerCase().trim();
+
+    const theatreCards =
+        document.querySelectorAll(".theatre-card");
+
+    let foundTheatres = 0;
+
+    theatreCards.forEach(function(card) {
+
+        const theatreName =
+            card.querySelector("h2")
+                .textContent
+                .toLowerCase();
+
+        const theatreDetails =
+            card.querySelector(".theatre-info")
+                .textContent
+                .toLowerCase();
 
 
-    dayName.innerText =
-        now.toLocaleDateString(
-            "en-IN",
-            {
-                weekday: "long"
-            }
+        if (
+            theatreName.includes(searchText) ||
+            theatreDetails.includes(searchText)
+        ) {
+
+            card.style.display = "block";
+
+            foundTheatres++;
+
+        } else {
+
+            card.style.display = "none";
+        }
+    });
+
+
+    /* No results */
+
+    let noResults =
+        document.querySelector(".no-theatres");
+
+
+    if (foundTheatres === 0) {
+
+        if (!noResults) {
+
+            noResults =
+                document.createElement("div");
+
+            noResults.className =
+                "no-theatres";
+
+            noResults.textContent =
+                "😔 No theatres found.";
+
+            document
+                .getElementById("theatreContainer")
+                .appendChild(noResults);
+        }
+
+    } else {
+
+        if (noResults) {
+            noResults.remove();
+        }
+    }
+}
+
+
+/* =========================
+   SELECT THEATRE
+========================= */
+
+function selectTheatre(theatreName) {
+
+    alert(
+        "🎭 " +
+        theatreName +
+        " selected!\n\n" +
+        "Now you can choose your movie and seats."
+    );
+
+}
+f
+
+// ================= SELECT THEATRE =================
+
+function selectTheatre(theatreName) {
+
+    alert(
+        "You selected " +
+        theatreName +
+        ".\n\nNext step: Select Movie and Show Time."
+    );
+
+}
+
+
+// ================= CANCEL BOOKING =================
+
+function cancelBooking(button) {
+
+    const confirmation =
+        confirm(
+            "Are you sure you want to cancel this booking?"
         );
 
+    if (confirmation) {
 
-    date.innerText =
-        now.toLocaleDateString(
-            "en-IN",
-            {
-                day: "numeric",
-                month: "long",
-                year: "numeric"
+        const bookingCard =
+            button.closest(".booking-card");
+
+        bookingCard.remove();
+
+        alert("Booking cancelled successfully.");
+
+    }
+
+}
+/* =========================================
+   PASSWORD TOGGLE
+========================================= */
+
+function togglePassword(inputId, button) {
+
+    const input = document.getElementById(inputId);
+
+    if (!input) {
+        return;
+    }
+
+    if (input.type === "password") {
+
+        input.type = "text";
+
+        button.textContent = "🙈";
+
+    } else {
+
+        input.type = "password";
+
+        button.textContent = "👁️";
+    }
+}
+
+
+/* =========================================
+   REGISTER FORM
+========================================= */
+
+const registerForm =
+    document.getElementById("registerForm");
+
+
+if (registerForm) {
+
+    registerForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                    .getElementById("registerName")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("registerEmail")
+                    .value
+                    .trim();
+
+
+            const phone =
+                document
+                    .getElementById("registerPhone")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("registerPassword")
+                    .value;
+
+
+            const confirmPassword =
+                document
+                    .getElementById("confirmPassword")
+                    .value;
+
+
+            /* Password validation */
+
+            if (password.length < 6) {
+
+                alert(
+                    "Password must contain at least 6 characters."
+                );
+
+                return;
             }
-        );
-
-}
 
 
-// ==========================================
-// LOADING
-// ==========================================
+            /* Confirm password */
 
-function showLoading() {
+            if (password !== confirmPassword) {
 
-    cityName.innerText =
-        "Loading...";
+                alert(
+                    "Password and Confirm Password do not match."
+                );
 
-    temperature.innerText =
-        "--°";
-
-    description.innerText =
-        "Getting weather...";
-
-    humidity.innerText =
-        "--%";
-
-    wind.innerText =
-        "-- km/h";
-
-}
+                return;
+            }
 
 
-// ==========================================
-// COUNTRY NAME
-// ==========================================
+            /* Mobile validation */
 
-function getCountryName(code) {
+            if (!/^[0-9]{10}$/.test(phone)) {
 
-    const countries = {
+                alert(
+                    "Please enter a valid 10-digit mobile number."
+                );
 
-        IN: "India",
-        US: "United States",
-        GB: "United Kingdom",
-        CA: "Canada",
-        AU: "Australia",
-        AE: "United Arab Emirates",
-        SG: "Singapore",
-        JP: "Japan",
-        FR: "France",
-        DE: "Germany",
-        IT: "Italy",
-        ES: "Spain",
-        BR: "Brazil",
-        RU: "Russia",
-        CN: "China"
-
-    };
+                return;
+            }
 
 
-    return countries[code] || code;
+            /*
+             * Temporary frontend registration
+             *
+             * Backend जोडल्यावर हा भाग
+             * API call मध्ये बदलला जाईल.
+             */
 
-}
+            const user = {
+
+                name: name,
+
+                email: email,
+
+                phone: phone,
+
+                password: password
+            };
 
 
-// ==========================================
-// CAPITALIZE
-// ==========================================
-
-function capitalize(text) {
-
-    return text
-        .charAt(0)
-        .toUpperCase()
-        + text.slice(1);
-
-}
-
-
-// ==========================================
-// LOCATION BUTTON
-// ==========================================
-
-locationBtn.addEventListener(
-    "click",
-    function () {
-
-        if (!navigator.geolocation) {
-
-            alert(
-                "Your browser does not support location."
+            localStorage.setItem(
+                "movieBookUser",
+                JSON.stringify(user)
             );
 
+
+            alert(
+                "Registration successful! 🎉\n\n" +
+                "Welcome to MovieBook, " +
+                name + "!"
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+    );
+}
+
+
+/* =========================================
+   LOGIN FORM
+========================================= */
+
+const loginForm =
+    document.getElementById("loginForm");
+
+
+if (loginForm) {
+
+    loginForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById("loginEmail")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("loginPassword")
+                    .value;
+
+
+            const savedUser =
+                localStorage.getItem(
+                    "movieBookUser"
+                );
+
+
+            if (!savedUser) {
+
+                alert(
+                    "No account found.\n\n" +
+                    "Please register first."
+                );
+
+                return;
+            }
+
+
+            const user =
+                JSON.parse(savedUser);
+
+
+            /* Check email */
+
+            if (email !== user.email) {
+
+                alert(
+                    "Invalid email address."
+                );
+
+                return;
+            }
+
+
+            /* Check password */
+
+            if (password !== user.password) {
+
+                alert(
+                    "Incorrect password."
+                );
+
+                return;
+            }
+
+
+            /*
+             * Save login state
+             */
+
+            localStorage.setItem(
+                "movieBookLoggedIn",
+                "true"
+            );
+
+
+            localStorage.setItem(
+                "movieBookCurrentUser",
+                JSON.stringify(user)
+            );
+
+
+            alert(
+                "Login successful! 🎉"
+            );
+
+
+            window.location.href =
+                "index.html";
+
+        }
+    );
+}
+
+
+/* =========================================
+   FORGOT PASSWORD
+========================================= */
+
+function forgotPassword(event) {
+
+    event.preventDefault();
+
+    const email =
+        prompt(
+            "Enter your registered email address:"
+        );
+
+
+    if (!email) {
+        return;
+    }
+
+
+    const savedUser =
+        localStorage.getItem(
+            "movieBookUser"
+        );
+
+
+    if (!savedUser) {
+
+        alert(
+            "No account found."
+        );
+
+        return;
+    }
+
+
+    const user =
+        JSON.parse(savedUser);
+
+
+    if (
+        email.trim().toLowerCase() !==
+        user.email.toLowerCase()
+    ) {
+
+        alert(
+            "No account found with this email."
+        );
+
+        return;
+    }
+
+
+    alert(
+        "Password reset feature will be connected to the backend."
+    );
+}
+
+/* =========================================
+   MOVIE SEARCH
+========================================= */
+
+function filterMovies() {
+
+    const searchInput =
+        document.getElementById("movieSearch");
+
+    if (!searchInput) {
+        return;
+    }
+
+    const searchText =
+        searchInput.value.toLowerCase().trim();
+
+    const movieCards =
+        document.querySelectorAll(".movie-card");
+
+    let foundMovies = 0;
+
+    movieCards.forEach(function (card) {
+
+        const titleElement =
+            card.querySelector("h3");
+
+        if (!titleElement) {
+            return;
+        }
+
+        const movieTitle =
+            titleElement.textContent.toLowerCase();
+
+        if (movieTitle.includes(searchText)) {
+
+            card.style.display = "";
+
+            foundMovies++;
+
+        } else {
+
+            card.style.display = "none";
+        }
+    });
+
+
+    /* =====================================
+       NO RESULTS MESSAGE
+    ===================================== */
+
+    let noResults =
+        document.querySelector(".movie-no-results");
+
+    if (foundMovies === 0 && searchText !== "") {
+
+        if (!noResults) {
+
+            noResults =
+                document.createElement("div");
+
+            noResults.className =
+                "movie-no-results no-results";
+
+            noResults.textContent =
+                "😔 No movies found.";
+
+            const movieSection =
+                document.querySelector(".movies-section");
+
+            if (movieSection) {
+                movieSection.appendChild(noResults);
+            }
+        }
+
+    } else {
+
+        if (noResults) {
+            noResults.remove();
+        }
+    }
+}
+
+
+/* =========================================
+   SEARCH MOVIE FROM HOME PAGE
+========================================= */
+
+function searchMovie() {
+
+    const searchInput =
+        document.getElementById("movieSearch");
+
+    if (!searchInput) {
+        return;
+    }
+
+    const movieName =
+        searchInput.value.trim();
+
+    if (movieName === "") {
+
+        alert("Please enter a movie name.");
+
+        return;
+    }
+
+    /*
+     * Save searched movie
+     * so movies.html can read it.
+     */
+
+    localStorage.setItem(
+        "movieSearchQuery",
+        movieName
+    );
+
+    /*
+     * Open movies page
+     */
+
+    window.location.href =
+        "movies.html";
+}
+
+
+/* =========================================
+   BOOK MOVIE
+========================================= */
+
+function bookMovie(movieName) {
+
+    /*
+     * Save selected movie
+     */
+
+    localStorage.setItem(
+        "selectedMovie",
+        movieName
+    );
+
+
+    /*
+     * Clear previous booking information
+     */
+
+    localStorage.removeItem("selectedTheatre");
+    localStorage.removeItem("selectedDate");
+    localStorage.removeItem("selectedTime");
+    localStorage.removeItem("selectedSeats");
+    localStorage.removeItem("bookingTotal");
+
+
+    /*
+     * Check login
+     */
+
+    const isLoggedIn =
+        localStorage.getItem("movieBookLoggedIn");
+
+
+    if (isLoggedIn !== "true") {
+
+        const loginRequired =
+            confirm(
+                "Please login before booking a movie.\n\n" +
+                "Do you want to login now?"
+            );
+
+        if (loginRequired) {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+        return;
+    }
+
+
+    /*
+     * Go to theatre selection
+     */
+
+    window.location.href =
+        "theaters1.html";
+}
+
+
+/* =========================================
+   LOAD SEARCH FROM HOME PAGE
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const searchInput =
+            document.getElementById("movieSearch");
+
+        if (!searchInput) {
             return;
         }
 
 
-        navigator.geolocation.getCurrentPosition(
+        /*
+         * Check if search came from Home page
+         */
 
-            function (position) {
-
-                const lat =
-                    position.coords.latitude;
-
-                const lon =
-                    position.coords.longitude;
-
-
-                getWeatherByLocation(
-                    lat,
-                    lon
-                );
-
-            },
-
-
-            function () {
-
-                alert(
-                    "Location permission denied."
-                );
-
-            }
-
-        );
-
-    }
-);
-
-
-// ==========================================
-// WEATHER BY GPS LOCATION
-// ==========================================
-
-async function getWeatherByLocation(
-    lat,
-    lon
-) {
-
-    try {
-
-        showLoading();
-
-
-        const url =
-            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-
-
-        const response =
-            await fetch(url);
-
-
-        const data =
-            await response.json();
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                data.message ||
-                "Location weather error"
+        const savedSearch =
+            localStorage.getItem(
+                "movieSearchQuery"
             );
 
+
+        if (savedSearch) {
+
+            searchInput.value =
+                savedSearch;
+
+            filterMovies();
+
+            /*
+             * Remove after using
+             */
+
+            localStorage.removeItem(
+                "movieSearchQuery"
+            );
         }
-
-
-        updateWeather(data);
-
-    }
-
-
-    catch (error) {
-
-        console.error(error);
-
-        alert(
-            "❌ Location weather मिळाले नाही."
-        );
-
-    }
-
-}
-
-
-// ==========================================
-// WEATHER BACKGROUND
-// ==========================================
-
-function updateWeatherBackground(id) {
-
-    if (id >= 200 && id < 300) {
-
-        document.body.style.background =
-            "linear-gradient(135deg,#373B44,#4286f4)";
-
-    }
-
-    else if (id >= 300 && id < 600) {
-
-        document.body.style.background =
-            "linear-gradient(135deg,#536976,#292E49)";
-
-    }
-
-    else if (id >= 600 && id < 700) {
-
-        document.body.style.background =
-            "linear-gradient(135deg,#83a4d4,#b6fbff)";
-
-    }
-
-    else if (id >= 700 && id < 800) {
-
-        document.body.style.background =
-            "linear-gradient(135deg,#757F9A,#D7DDE8)";
-
-    }
-
-    else if (id === 800) {
-
-        document.body.style.background =
-            "linear-gradient(135deg,#4facfe,#00f2fe)";
-
-    }
-
-    else {
-
-        document.body.style.background =
-            "linear-gradient(135deg,#667eea,#764ba2)";
-
-    }
-
-}
-
-
-// ==========================================
-// DARK MODE
-// ==========================================
-
-const themeBtn =
-    document.getElementById("themeBtn");
-
-
-themeBtn.addEventListener(
-    "click",
-    function () {
-
-        document.body.classList.toggle(
-            "dark-mode"
-        );
-
-        if (
-            document.body.classList.contains(
-                "dark-mode"
-            )
-        ) {
-
-            themeBtn.innerText = "☀️";
-
-        }
-
-        else {
-
-            themeBtn.innerText = "🌙";
-
-        }
-
     }
 );
-
-
-// ==========================================
-// DEFAULT CITY
-// ==========================================
-
-getWeather("Pune");

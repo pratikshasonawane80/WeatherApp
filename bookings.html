@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MovieBook - My Bookings</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- Navbar -->
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                🎬 MovieBook
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="movies.html">Movies</a>
+                </li>
+
+                <li>
+                    <a href="theaters1.html">Theatres</a>
+                </li>
+
+                <li>
+                    <a href="bookings.html" class="active">
+                        My Bookings
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.html">
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="register.html">
+
+                    </a>
+                </li >
+
+            </ul>
+
+            <!-- Login / Register -->
+                <div class="nav-buttons">
+
+                    <a href="login.html" class="login-btn">
+                        Login
+                    </a>
+
+                    <a href="register.html" class="register-btn">
+                        Register
+                    </a>
+
+                </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+
+        <h1>My Bookings</h1>
+
+        <p>
+            View and manage your movie ticket bookings.
+        </p>
+
+    </section>
+
+
+    <!-- Bookings -->
+    <section class="booking-section">
+
+        <div id="bookingContainer">
+
+
+            <!-- Booking 1 -->
+            <div class="booking-card">
+
+                <div class="booking-movie">
+                    🎬
+                </div>
+
+                <div class="booking-info">
+
+                    <h2>Avengers</h2>
+
+                    <p>
+                        🏢 PVR Cinemas
+                    </p>
+
+                    <p>
+                        📅 10 September 2026
+                    </p>
+
+                    <p>
+                        🕐 07:30 PM
+                    </p>
+
+                    <p>
+                        💺 Seats: A5, A6
+                    </p>
+
+                    <p>
+                        💰 Total: ₹400
+                    </p>
+
+                    <span class="booking-status">
+                        Confirmed
+                    </span>
+
+                </div>
+
+                <div class="booking-actions">
+
+                    <button
+                        onclick="cancelBooking(this)">
+
+                        Cancel Booking
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Booking 2 -->
+            <div class="booking-card">
+
+                <div class="booking-movie">
+                    🎥
+                </div>
+
+                <div class="booking-info">
+
+                    <h2>Inception</h2>
+
+                    <p>
+                        🏢 INOX
+                    </p>
+
+                    <p>
+                        📅 15 September 2026
+                    </p>
+
+                    <p>
+                        🕐 09:00 PM
+                    </p>
+
+                    <p>
+                        💺 Seats: B4, B5
+                    </p>
+
+                    <p>
+                        💰 Total: ₹450
+                    </p>
+
+                    <span class="booking-status">
+                        Confirmed
+                    </span>
+
+                </div>
+
+                <div class="booking-actions">
+
+                    <button
+                        onclick="cancelBooking(this)">
+
+                        Cancel Booking
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 MovieBook. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

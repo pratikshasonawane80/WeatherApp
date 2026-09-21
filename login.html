@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MovieBook - Login</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="auth-page">
+
+    <!-- Navbar -->
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                🎬 <span>Movie</span>Book
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        🏠 Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="movies.html">
+                        🎬 Movies
+                    </a>
+                </li>
+
+                <li>
+                    <a href="theatres1.html">
+                        🎭 Theatres
+                    </a>
+                </li>
+
+                <li>
+                    <a href="bookings.html">
+                        🎟️ My Bookings
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="nav-buttons">
+
+                <a href="login.html" class="login-btn">
+                    Login
+                </a>
+
+                <a href="register.html" class="register-btn">
+                    Register
+                </a>
+                <a href="contact.html" class="register-btn">
+                    contact
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Login -->
+    <main class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="auth-icon">
+                🎟️
+            </div>
+
+            <h1>Welcome Back</h1>
+
+            <p class="auth-subtitle">
+                Login to continue booking your favourite movies.
+            </p>
+
+
+            <form id="loginForm">
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="loginEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword('loginPassword', this)">
+                            👁️
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Remember / Forgot -->
+                <div class="login-options">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+                        Remember me
+                    </label>
+
+                    <a href="#" onclick="forgotPassword(event)">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    class="auth-btn">
+                    Login
+                </button>
+
+            </form>
+
+
+            <!-- Register -->
+            <div class="auth-footer">
+
+                <p>
+                    Don't have an account?
+                    <a href="register.html">
+                        Create Account
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 MovieBook. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
