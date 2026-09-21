@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherNow | Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+<header class="header">
+
+    <a href="index.html" class="brand">
+        <div class="brand-icon">🌤️</div>
+
+        <div>
+            <h1>Weather<span>Now</span></h1>
+            <p>Your daily weather companion</p>
+        </div>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="forecast.html">Forecast</a>
+        <a href="details.html">Details</a>
+        <a href="sun.html">Sun & Moon</a>
+        <a href="settings.html" class="active">Settings</a>
+        <a href="about.html">About</a>
+
+    </nav>
+
+    <button id="themeBtn" class="theme-btn">🌙</button>
+
+</header>
+
+
+<div class="page-title">
+
+    <span>APP SETTINGS</span>
+
+    <h2>Settings</h2>
+
+    <p>
+        Customize your WeatherNow experience.
+    </p>
+
+</div>
+
+
+<section class="settings-card">
+
+
+    <div class="setting-row">
+
+        <div>
+            <strong>Temperature Unit</strong>
+            <p>Choose how temperature is displayed.</p>
+        </div>
+
+        <select id="temperatureUnit">
+
+            <option value="celsius">
+                Celsius °C
+            </option>
+
+            <option value="fahrenheit">
+                Fahrenheit °F
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="setting-row">
+
+        <div>
+            <strong>Dark Mode</strong>
+            <p>Use dark appearance throughout the app.</p>
+        </div>
+
+        <button
+            class="setting-button"
+            id="darkModeBtn">
+
+            🌙 Toggle
+
+        </button>
+
+    </div>
+
+
+    <div class="setting-row">
+
+        <div>
+            <strong>Location</strong>
+            <p>Use your current location for weather.</p>
+        </div>
+
+        <button
+            class="setting-button"
+            id="locationBtn">
+
+            📍 Detect Location
+
+        </button>
+
+    </div>
+
+
+    <div class="setting-row">
+
+        <div>
+            <strong>Weather Updates</strong>
+            <p>Refresh weather information.</p>
+        </div>
+
+        <button
+            class="setting-button"
+            onclick="location.reload()">
+
+            🔄 Refresh
+
+        </button>
+
+    </div>
+
+
+</section>
+
+
+<footer>
+
+    <div class="footer-logo">🌤️ WeatherNow</div>
+
+    <p>Beautiful weather information, wherever you are.</p>
+
+    <span>© 2026 WeatherNow</span>
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

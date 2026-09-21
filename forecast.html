@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WeatherNow | Forecast</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="header">
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-icon">
+                🌤️
+            </div>
+
+            <div>
+                <h1>
+                    Weather<span>Now</span>
+                </h1>
+
+                <p>
+                    Your daily weather companion
+                </p>
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="forecast.html" class="active">
+                Forecast
+            </a>
+
+            <a href="details.html">
+                Details
+            </a>
+
+            <a href="sun.html">
+                Sun & Moon
+            </a>
+
+            <a href="settings.html">
+                Settings
+            </a>
+            <a href="about.html">About</a>
+
+
+        </nav>
+
+
+        <button
+            id="themeBtn"
+            class="theme-btn"
+            aria-label="Toggle theme"
+        >
+            🌙
+        </button>
+
+    </header>
+
+
+    <!-- =========================================
+         PAGE HERO
+    ========================================== -->
+
+    <section class="forecast-hero">
+
+        <div>
+
+            <span class="page-label">
+                WEATHER FORECAST
+            </span>
+
+            <h2>
+                Forecast
+            </h2>
+
+            <p>
+                Check the upcoming hourly and weekly weather.
+            </p>
+
+        </div>
+
+
+        <div class="forecast-location">
+
+            <span>
+                📍
+            </span>
+
+            <div>
+
+                <strong id="forecastCity">
+                    Pune
+                </strong>
+
+                <small id="forecastCountry">
+                    Maharashtra, India
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SEARCH
+    ========================================== -->
+
+    <section class="forecast-search">
+
+        <div class="search-box">
+
+            <span>
+                🔍
+            </span>
+
+            <input
+                type="text"
+                id="forecastCityInput"
+                placeholder="Search city..."
+            >
+
+            <button id="forecastSearchBtn">
+                Search
+            </button>
+
+        </div>
+
+
+        <button
+            id="forecastLocationBtn"
+            class="location-btn"
+        >
+            📍 Use My Location
+        </button>
+
+    </section>
+
+
+    <!-- =========================================
+         CURRENT WEATHER SUMMARY
+    ========================================== -->
+
+    <section class="forecast-current-card">
+
+        <div class="current-weather-left">
+
+            <span class="current-label">
+                TODAY
+            </span>
+
+            <h3 id="forecastDate">
+                Tuesday, 15 September
+            </h3>
+
+            <div class="current-temperature">
+
+                <div
+                    id="forecastCurrentIcon"
+                    class="forecast-main-icon"
+                >
+                    ☀️
+                </div>
+
+                <strong id="forecastCurrentTemp">
+                    28°
+                </strong>
+
+                <div>
+
+                    <span id="forecastCurrentDescription">
+                        Sunny
+                    </span>
+
+                    <small>
+                        Feels like
+                        <strong id="forecastFeels">
+                            30°
+                        </strong>
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="current-weather-stats">
+
+            <div class="mini-stat">
+
+                <span>
+                    💧
+                </span>
+
+                <div>
+                    <small>
+                        Humidity
+                    </small>
+
+                    <strong id="forecastHumidity">
+                        65%
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="mini-stat">
+
+                <span>
+                    💨
+                </span>
+
+                <div>
+                    <small>
+                        Wind
+                    </small>
+
+                    <strong id="forecastWind">
+                        12 km/h
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="mini-stat">
+
+                <span>
+                    🌧️
+                </span>
+
+                <div>
+                    <small>
+                        Rain Chance
+                    </small>
+
+                    <strong id="forecastRainChance">
+                        10%
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         HOURLY FORECAST
+    ========================================== -->
+
+    <section class="forecast-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    NEXT HOURS
+                </span>
+
+                <h2>
+                    Hourly Forecast
+                </h2>
+
+            </div>
+
+            <span class="section-note">
+                Next 24 hours
+            </span>
+
+        </div>
+
+
+        <div
+            class="hourly-forecast"
+            id="hourlyForecast"
+        >
+
+            <!-- Hour 1 -->
+
+            <div class="forecast-hour-card active">
+
+                <span>
+                    Now
+                </span>
+
+                <div class="forecast-hour-icon">
+                    ☀️
+                </div>
+
+                <strong>
+                    28°
+                </strong>
+
+                <small>
+                    Clear
+                </small>
+
+                <div class="rain-probability">
+                    💧 5%
+                </div>
+
+            </div>
+
+
+            <!-- Hour 2 -->
+
+            <div class="forecast-hour-card">
+
+                <span>
+                    11 AM
+                </span>
+
+                <div class="forecast-hour-icon">
+                    ☀️
+                </div>
+
+                <strong>
+                    29°
+                </strong>
+
+                <small>
+                    Sunny
+                </small>
+
+                <div class="rain-probability">
+                    💧 5%
+                </div>
+
+            </div>
+
+
+            <!-- Hour 3 -->
+
+            <div class="forecast-hour-card">
+
+                <span>
+                    12 PM
+                </span>
+
+                <div class="forecast-hour-icon">
+                    🌤️
+                </div>
+
+                <strong>
+                    30°
+                </strong>
+
+                <small>
+                    Partly Cloudy
+                </small>
+
+                <div class="rain-probability">
+                    💧 10%
+                </div>
+
+            </div>
+
+
+            <!-- Hour 4 -->
+
+            <div class="forecast-hour-card">
+
+                <span>
+                    1 PM
+                </span>
+
+                <div class="forecast-hour-icon">
+                    🌤️
+                </div>
+
+                <strong>
+                    31°
+                </strong>
+
+                <small>
+                    Partly Cloudy
+                </small>
+
+                <div class="rain-probability">
+                    💧 10%
+                </div>
+
+            </div>
+
+
+            <!-- Hour 5 -->
+
+            <div class="forecast-hour-card">
+
+                <span>
+                    2 PM
+                </span>
+
+                <div class="forecast-hour-icon">
+                    ☁️
+                </div>
+
+                <strong>
+                    30°
+                </strong>
+
+                <small>
+                    Cloudy
+                </small>
+
+                <div class="rain-probability">
+                    💧 20%
+                </div>
+
+            </div>
+
+
+            <!-- Hour 6 -->
+
+            <div class="forecast-hour-card">
+
+                <span>
+                    3 PM
+                </span>
+
+                <div class="forecast-hour-icon">
+                    🌧️
+                </div>
+
+                <strong>
+                    28°
+                </strong>
+
+                <small>
+                    Light Rain
+                </small>
+
+                <div class="rain-probability">
+                    💧 45%
+                </div>
+
+            </div>
+
+
+            <!-- Hour 7 -->
+
+            <div class="forecast-hour-card">
+
+                <span>
+                    4 PM
+                </span>
+
+                <div class="forecast-hour-icon">
+                    🌧️
+                </div>
+
+                <strong>
+                    27°
+                </strong>
+
+                <small>
+                    Light Rain
+                </small>
+
+                <div class="rain-probability">
+                    💧 55%
+                </div>
+
+            </div>
+
+
+            <!-- Hour 8 -->
+
+            <div class="forecast-hour-card">
+
+                <span>
+                    5 PM
+                </span>
+
+                <div class="forecast-hour-icon">
+                    🌧️
+                </div>
+
+                <strong>
+                    27°
+                </strong>
+
+                <small>
+                    Rain
+                </small>
+
+                <div class="rain-probability">
+                    💧 60%
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         DAILY FORECAST
+    ========================================== -->
+
+    <section class="forecast-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    EXTENDED FORECAST
+                </span>
+
+                <h2>
+                    7 Day Forecast
+                </h2>
+
+            </div>
+
+            <span class="section-note">
+                Weekly outlook
+            </span>
+
+        </div>
+
+
+        <div
+            class="daily-forecast"
+            id="dailyForecast"
+        >
+
+            <!-- TODAY -->
+
+            <div class="forecast-day-row today">
+
+                <div class="forecast-day-name">
+
+                    <strong>
+                        Today
+                    </strong>
+
+                    <small>
+                        Sep 15
+                    </small>
+
+                </div>
+
+
+                <div class="forecast-day-weather">
+
+                    <span class="daily-icon">
+                        ☀️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Sunny
+                        </strong>
+
+                        <small>
+                            Clear skies
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="daily-rain">
+                    💧 10%
+                </div>
+
+
+                <div class="daily-temp">
+
+                    <strong>
+                        31°
+                    </strong>
+
+                    <span>
+                        22°
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEDNESDAY -->
+
+            <div class="forecast-day-row">
+
+                <div class="forecast-day-name">
+
+                    <strong>
+                        Wednesday
+                    </strong>
+
+                    <small>
+                        Sep 16
+                    </small>
+
+                </div>
+
+
+                <div class="forecast-day-weather">
+
+                    <span class="daily-icon">
+                        🌤️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Partly Cloudy
+                        </strong>
+
+                        <small>
+                            Mostly pleasant
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="daily-rain">
+                    💧 20%
+                </div>
+
+
+                <div class="daily-temp">
+
+                    <strong>
+                        30°
+                    </strong>
+
+                    <span>
+                        21°
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- THURSDAY -->
+
+            <div class="forecast-day-row">
+
+                <div class="forecast-day-name">
+
+                    <strong>
+                        Thursday
+                    </strong>
+
+                    <small>
+                        Sep 17
+                    </small>
+
+                </div>
+
+
+                <div class="forecast-day-weather">
+
+                    <span class="daily-icon">
+                        🌧️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Light Rain
+                        </strong>
+
+                        <small>
+                            Scattered showers
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="daily-rain">
+                    💧 55%
+                </div>
+
+
+                <div class="daily-temp">
+
+                    <strong>
+                        27°
+                    </strong>
+
+                    <span>
+                        21°
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FRIDAY -->
+
+            <div class="forecast-day-row">
+
+                <div class="forecast-day-name">
+
+                    <strong>
+                        Friday
+                    </strong>
+
+                    <small>
+                        Sep 18
+                    </small>
+
+                </div>
+
+
+                <div class="forecast-day-weather">
+
+                    <span class="daily-icon">
+                        ⛈️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Thunderstorm
+                        </strong>
+
+                        <small>
+                            Storm possible
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="daily-rain">
+                    💧 70%
+                </div>
+
+
+                <div class="daily-temp">
+
+                    <strong>
+                        26°
+                    </strong>
+
+                    <span>
+                        20°
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SATURDAY -->
+
+            <div class="forecast-day-row">
+
+                <div class="forecast-day-name">
+
+                    <strong>
+                        Saturday
+                    </strong>
+
+                    <small>
+                        Sep 19
+                    </small>
+
+                </div>
+
+
+                <div class="forecast-day-weather">
+
+                    <span class="daily-icon">
+                        🌤️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Partly Cloudy
+                        </strong>
+
+                        <small>
+                            Some clouds
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="daily-rain">
+                    💧 25%
+                </div>
+
+
+                <div class="daily-temp">
+
+                    <strong>
+                        29°
+                    </strong>
+
+                    <span>
+                        21°
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUNDAY -->
+
+            <div class="forecast-day-row">
+
+                <div class="forecast-day-name">
+
+                    <strong>
+                        Sunday
+                    </strong>
+
+                    <small>
+                        Sep 20
+                    </small>
+
+                </div>
+
+
+                <div class="forecast-day-weather">
+
+                    <span class="daily-icon">
+                        ☀️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Sunny
+                        </strong>
+
+                        <small>
+                            Clear skies
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="daily-rain">
+                    💧 10%
+                </div>
+
+
+                <div class="daily-temp">
+
+                    <strong>
+                        31°
+                    </strong>
+
+                    <span>
+                        22°
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- MONDAY -->
+
+            <div class="forecast-day-row">
+
+                <div class="forecast-day-name">
+
+                    <strong>
+                        Monday
+                    </strong>
+
+                    <small>
+                        Sep 21
+                    </small>
+
+                </div>
+
+
+                <div class="forecast-day-weather">
+
+                    <span class="daily-icon">
+                        🌧️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Rain
+                        </strong>
+
+                        <small>
+                            Periods of rain
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="daily-rain">
+                    💧 60%
+                </div>
+
+
+                <div class="daily-temp">
+
+                    <strong>
+                        28°
+                    </strong>
+
+                    <span>
+                        21°
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         WEATHER INSIGHTS
+    ========================================== -->
+
+    <section class="forecast-insights">
+
+        <div class="insight-card">
+
+            <div class="insight-icon">
+                🌅
+            </div>
+
+            <div>
+
+                <span>
+                    SUNRISE
+                </span>
+
+                <strong id="forecastSunrise">
+                    6:18 AM
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="insight-card">
+
+            <div class="insight-icon">
+                🌇
+            </div>
+
+            <div>
+
+                <span>
+                    SUNSET
+                </span>
+
+                <strong id="forecastSunset">
+                    6:29 PM
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="insight-card">
+
+            <div class="insight-icon">
+                🌡️
+            </div>
+
+            <div>
+
+                <span>
+                    HIGH / LOW
+                </span>
+
+                <strong id="forecastHighLow">
+                    31° / 22°
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="insight-card">
+
+            <div class="insight-icon">
+                ☁️
+            </div>
+
+            <div>
+
+                <span>
+                    CLOUD COVER
+                </span>
+
+                <strong id="forecastClouds">
+                    20%
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🌤️ WeatherNow
+        </div>
+
+        <p>
+            Beautiful weather information, wherever you are.
+        </p>
+
+        <span>
+            © 2026 WeatherNow
+        </span>
+
+    </footer>
+
+</div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="forecast.js"></script>
+
+</body>
+
+</html>
